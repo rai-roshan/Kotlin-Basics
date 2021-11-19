@@ -3,5 +3,8 @@ class Main {
 }
 
 fun main() {
-    println("Hello World")
+    val firstName: String = "Roshan"
+    val lastName: String = "Rai"
+
+    println("My name is $firstName $lastName")
 }
