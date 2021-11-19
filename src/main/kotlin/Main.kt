@@ -2,22 +2,18 @@ class Main {
 
 }
 
-/* there is no terniary opertator in Kotlin
-* instead we can use if-else and when as expressions */
 fun main() {
 
-    val eligible: Boolean
-    val age: Int = 18
-    eligible = if(age<18) false else true
+    //array declaration for any type of data
+    val a: Array<Int> = arrayOf(1,2,3,4,5,6,7,8)
 
-    val userType: String = "admin"
-    val rights: String = when( userType ) {
-        "admin" -> "you are granted all the rights"
-        "user" -> "restricted rights to user"
-        "group" -> "for additional rights ask admin for permission"
-        else -> "this case is not handled"
-    }
+    //array declaration for primitive data type
+    val b: IntArray = intArrayOf(1,2,3,4,5,6,7,8)
 
-    println("is user eligible : $eligible")
-    println("users rights : $rights")
+    //array declaration with fixed size and initializer
+    val c = Array(5) { 4 }  // its a lambda function
+
+    println( a[0] )
+    println( c[3] )
+    println( c[4] )
 }
