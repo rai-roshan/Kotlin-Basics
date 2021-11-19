@@ -4,9 +4,11 @@ class Main {
 
 // Null Safety handles the NullPointerException , so our code doesn't break in between
 fun main() {
-    val firstName: String? = "Roshan"
-    val lastName: String? = null
-
-    println("My first name length is ${firstName?.length}")
-    println("My last name length is ${lastName?.length}")
+    val age: Int = 17
+    if(age < 18){
+        println("you are under age kid")
+    }
+    else{
+        println("oh you grownup man , u are in")
+    }
 }
