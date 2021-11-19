@@ -2,13 +2,21 @@ class Main {
 
 }
 
-// Null Safety handles the NullPointerException , so our code doesn't break in between
+// alternate of switch case
 fun main() {
-    val age: Int = 17
-    if(age < 18){
-        println("you are under age kid")
-    }
-    else{
-        println("oh you grownup man , u are in")
+    val userType: String = "admin"
+    when( userType ) {
+        "admin" -> {
+            println("you are granted all the rights")
+        }
+        "user" -> {
+            println("restricted rights to user")
+        }
+        "group" -> {
+            println("for additional rights ask admin for permission")
+        }
+        else -> {
+            println("this case is not handled")
+        }
     }
 }
