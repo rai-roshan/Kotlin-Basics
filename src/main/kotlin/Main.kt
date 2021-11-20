@@ -4,16 +4,21 @@ class Main {
 
 fun main() {
 
-    //array declaration for any type of data
-    val a: Array<Int> = arrayOf(1,2,3,4,5,6,7,8)
+    var i: Int = 0
+    while(i < 10) {
+        print("$i ")
+        i+=2
+    }
+    print("\n");
 
-    //array declaration for primitive data type
-    val b: IntArray = intArrayOf(1,2,3,4,5,6,7,8)
+    // for loop is used to iterate any range or any collections which provide an iterator
+    for( j: Int in 1..10 ){
+        print("$j ")
+    }
+    print("\n")
 
-    //array declaration with fixed size and initializer
-    val c = Array(5) { 4 }  // its a lambda function
-
-    println( a[0] )
-    println( c[3] )
-    println( c[4] )
+    val a: Array<Int> = arrayOf(11,22,33,44,55)
+    for( j: Int in a.indices){
+        print("${a[j]} ")
+    }
 }
