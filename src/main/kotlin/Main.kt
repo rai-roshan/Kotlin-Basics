@@ -2,23 +2,43 @@ class Main {
 
 }
 
+fun rollDice() {
+    println( (1..10).random())
+}
+
+fun multRollDice( times: Int ) {
+    for( i in 0 until times ){
+        rollDice()
+    }
+}
+
+fun createPizza( size: String = "MD" , extraToppings: Boolean = false , veg: Boolean = true ){
+    println("=====Pizza Detail=====")
+    println("size: $size")
+    println("extra topping: $extraToppings")
+    println("veg: $veg")
+}
+
+fun getSum( vararg nums: Int ) : Int {
+    return nums.sum()
+}
+
 fun main() {
+    //simple function call
+    rollDice()
 
-    var i: Int = 0
-    while(i < 10) {
-        print("$i ")
-        i+=2
-    }
-    print("\n");
-
-    // for loop is used to iterate any range or any collections which provide an iterator
-    for( j: Int in 1..10 ){
-        print("$j ")
-    }
     print("\n")
 
-    val a: Array<Int> = arrayOf(11,22,33,44,55)
-    for( j: Int in a.indices){
-        print("${a[j]} ")
-    }
+    //function with arguments
+    multRollDice(3)
+
+    print("\n")
+
+    //function with named arguments , any order
+    createPizza(size = "XL", veg = false, extraToppings = true)
+
+    print("\n")
+
+    //function that return value and take any number of arguments
+    println("the returned value is : ${getSum( 5, 4, 5, 4)}")
 }
