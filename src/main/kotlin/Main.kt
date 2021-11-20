@@ -1,44 +1,44 @@
+import kotlin.concurrent.thread
+
 class Main {
 
 }
 
-fun rollDice() {
-    println( (1..10).random())
-}
+/*
+in kotlin functions are first class i.e.
+    1. we can store function in a variable
+    2. we can pass function as an argument in a function
+    3. we can return function from a function
+ */
 
-fun multRollDice( times: Int ) {
-    for( i in 0 until times ){
-        rollDice()
+// this function is taking a function as an argument
+// the argument function has one parameter "result" and it has no return type so we use "Unit"
+fun rollDice( range: IntRange, time: Int, callback: (result: Int) -> Unit ) {
+    for( i in 0 until time ){
+        val result = range.random()
+        callback(result)
     }
 }
 
-fun createPizza( size: String = "MD" , extraToppings: Boolean = false , veg: Boolean = true ){
-    println("=====Pizza Detail=====")
-    println("size: $size")
-    println("extra topping: $extraToppings")
-    println("veg: $veg")
-}
-
-fun getSum( vararg nums: Int ) : Int {
-    return nums.sum()
+fun rollDiceThread( callback: (result: Int)->Unit) {
+    thread {
+        Thread.sleep( 3000 )
+        callback(4)
+    }
+    println("dice rolled")
 }
 
 fun main() {
-    //simple function call
-    rollDice()
+
+    // Higher Order Function :
+    // a function is called as a higher order function , when a function is passed as an argument or return a function or both
+    rollDice(1..6, 4) { result ->
+        println(result)
+    }
 
     print("\n")
 
-    //function with arguments
-    multRollDice(3)
-
-    print("\n")
-
-    //function with named arguments , any order
-    createPizza(size = "XL", veg = false, extraToppings = true)
-
-    print("\n")
-
-    //function that return value and take any number of arguments
-    println("the returned value is : ${getSum( 5, 4, 5, 4)}")
+    rollDiceThread() { result ->
+        print("the result is $result")
+    }
 }
